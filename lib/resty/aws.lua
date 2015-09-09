@@ -113,20 +113,7 @@ local function get_authorization(keys, timestamp, region, service, host, uri)
 end
 
 local function get_service_and_region(host)
-  local patterns = {
-    {'s3.amazonaws.com', 's3', 'us-east-1'},
-    {'s3-external-1.amazonaws.com', 's3', 'us-east-1'},
-    {'s3%-([a-z0-9-]+)%.amazonaws%.com', 's3', nil}
-  }
-  for i,data in ipairs(patterns) do
-    local region = host:match(data[1])
-    if region ~= nil and data[3] == nil then
-      return data[2], region
-    elseif region ~= nil then
-      return data[2], data[3]
-    end
-  end
-  return nil, nil
+  return 'sqs','us-east-1'
 end
 
 local function aws_set_headers(host, uri)
