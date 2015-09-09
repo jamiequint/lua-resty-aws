@@ -130,12 +130,12 @@ local function aws_set_headers(host, uri)
   end
 end
 
-local function s3_set_headers(host, uri)
+local function sqs_set_headers(host, uri)
   aws_set_headers(host, uri)
   ngx.req.set_header('x-amz-content-sha256', get_sha256_digest(ngx.var.request_body))
 end
 
 _M.aws_set_headers = aws_set_headers
-_M.s3_set_headers = s3_set_headers
+_M.sqs_set_headers = s3_set_headers
 
 return _M
