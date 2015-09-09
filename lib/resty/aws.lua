@@ -136,6 +136,6 @@ local function sqs_set_headers(host, uri)
 end
 
 _M.aws_set_headers = aws_set_headers
-_M.sqs_set_headers = s3_set_headers
+_M.sqs_set_headers = sqs_set_headers
 
 return _M
